@@ -3,357 +3,1170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harini M | Portfolio</title>
+<title>Harini Moorthy | ECE Graduate & Frontend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-:root{
-  --primary:#0ea5e9;
-  --dark:#020617;
-  --light:#f8fafc;
-  --muted:#64748b;
+:root {
+  --navy: #0a1628;
+  --navy-mid: #122040;
+  --blue: #1d6ae5;
+  --blue-light: #4a90e2;
+  --sky: #e8f1fd;
+  --cream: #fafaf8;
+  --ink: #0a1628;
+  --muted: #6b7a99;
+  --border: #dde4f0;
+  --white: #ffffff;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
 }
 
-html{scroll-behavior:smooth;}
-body{background:var(--light);color:var(--dark);}
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
 
-/* ===== NAV ===== */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#ffffffdd;
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #e2e8f0;
-  z-index:1000;
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(250,250,248,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
 }
-.nav-wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.nav-inner {
+  max-width: 1160px;
+  margin: auto;
+  padding: 0 24px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-nav a{
-  margin-left:18px;
-  text-decoration:none;
-  font-weight:600;
-  color:#334155;
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+  text-decoration: none;
 }
-nav a:hover{color:var(--primary);}
-
-/* ===== LAYOUT ===== */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:120px 20px 80px;
+.nav-links { display: flex; gap: 6px; }
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.25s;
 }
-section{margin-bottom:90px;}
-h2{font-size:34px;margin-bottom:24px;}
-p{color:#334155;}
-
-/* ===== HERO ===== */
-.hero h1{font-size:48px;}
-.hero span{color:var(--primary);}
-.hero p{max-width:650px;margin-top:12px;font-size:18px;}
-
-.btn{
-  display:inline-block;
-  padding:12px 22px;
-  background:var(--primary);
-  color:#fff;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:600;
-  transition:.3s;
-}
-.btn.outline{
-  background:transparent;
-  color:var(--primary);
-  border:2px solid var(--primary);
-  margin-left:12px;
-}
-.btn:hover{transform:translateY(-3px);}
-
-/* ===== GRID ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+.nav-links a:hover {
+  color: var(--blue);
+  background: var(--sky);
 }
 
-/* ===== CARD ===== */
-.card{
-  background:#fff;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  transition:.4s;
-}
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 20px 40px rgba(14,165,233,.25);
-}
-.card img,.card video{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-.card-content{padding:18px;}
-.card h3{color:var(--primary);margin-bottom:6px;}
-.card p{font-size:15px;color:#475569;}
-
-/* ===== TABS ===== */
-.tabs{display:flex;gap:16px;margin-bottom:24px;}
-.tab{
-  padding:10px 20px;
-  border-radius:20px;
-  background:#e0f2fe;
-  color:#0369a1;
-  cursor:pointer;
-  font-weight:600;
-}
-.tab.active{background:var(--primary);color:#fff;}
-.tab-content{display:none;}
-.tab-content.active{display:block;}
-
-/* ===== SKILLS ===== */
-.skills span{
-  display:inline-block;
-  padding:8px 14px;
-  margin:6px;
-  background:#e0f2fe;
-  border-radius:20px;
-  font-weight:600;
-  color:#0369a1;
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 62px;
 }
 
-/* ===== EDUCATION ===== */
-.edu{
-  border-left:4px solid var(--primary);
-  padding-left:20px;
-}
-.edu-item{margin-bottom:26px;}
-.edu-item h3{color:#0f172a;}
-.edu-item span{
-  display:block;
-  color:var(--muted);
-  font-size:14px;
-  margin:4px 0;
+/* Background geometric pattern */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 80% 30%, rgba(29,106,229,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 400px at 10% 80%, rgba(29,106,229,0.04) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-/* ===== CERT ===== */
-.cert img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  transition:.4s;
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%);
 }
-.cert img:hover{transform:scale(1.08);}
 
-/* ===== FOOTER ===== */
-footer{
-  background:#020617;
-  color:#cbd5f5;
-  padding:30px;
-  text-align:center;
+.hero-inner {
+  max-width: 1160px;
+  margin: auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
 }
-footer a{
-  color:#38bdf8;
-  margin:0 12px;
-  font-size:18px;
-  text-decoration:none;
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sky);
+  border: 1px solid #c2d8f8;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s ease both;
 }
-footer a:hover{color:#fff;}
+.hero-tag::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--blue);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 82px);
+  line-height: 1.05;
+  color: var(--navy);
+  margin-bottom: 10px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--blue);
+}
+.hero-sub {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  font-weight: 300;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 4px 20px rgba(29,106,229,0.28);
+}
+.btn-primary:hover {
+  background: #1559c7;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(29,106,229,0.38);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border: 1.5px solid var(--border);
+  color: var(--ink);
+  background: var(--white);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+.btn-outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.stat-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  color: var(--navy);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTION WRAPPER ── */
+.section {
+  max-width: 1160px;
+  margin: auto;
+  padding: 100px 24px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 44px);
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 48px;
+}
+
+/* ── TABS ── */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+.tab {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.2s;
+  border-radius: 0;
+  background: transparent;
+}
+.tab:hover { color: var(--blue); }
+.tab.active {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ── PROJECT GRID ── */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ── PROJECT CARD ── */
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #c2d8f8;
+  box-shadow: 0 24px 48px rgba(29,106,229,0.12);
+}
+.card-media {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  background: var(--sky);
+}
+.card-body { padding: 22px; }
+.card-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--sky);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── SKILLS SECTION ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.skill-group {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  transition: all 0.25s;
+}
+.skill-group:hover {
+  border-color: #c2d8f8;
+  box-shadow: 0 8px 24px rgba(29,106,229,0.08);
+  transform: translateY(-3px);
+}
+.skill-group-icon {
+  width: 40px; height: 40px;
+  background: var(--sky);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+.skill-group-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--blue);
+  background: var(--sky);
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid #c2d8f8;
+}
+
+/* ── EDUCATION ── */
+.edu-list { display: flex; flex-direction: column; gap: 0; }
+.edu-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.edu-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 38px;
+  width: 10px; height: 10px;
+  background: var(--blue);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  outline: 2px solid var(--blue);
+}
+.edu-left { padding-left: 20px; }
+.edu-degree {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.edu-school {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.edu-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sky);
+  border: 1px solid #c2d8f8;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.edu-year {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 4px;
+}
+.edu-wrapper {
+  border-left: 2px solid var(--border);
+  padding-left: 24px;
+  margin-left: 8px;
+}
+
+/* ── CERTIFICATIONS ── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.cert-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--white);
+  transition: all 0.3s;
+}
+.cert-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 40px rgba(29,106,229,0.14);
+  border-color: #c2d8f8;
+}
+.cert-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── CONTACT / FOOTER ── */
+footer {
+  background: var(--navy);
+  color: #8da0c0;
+  padding: 60px 24px;
+  text-align: center;
+}
+.footer-inner { max-width: 600px; margin: auto; }
+.footer-name {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.footer-tagline {
+  font-size: 15px;
+  color: #8da0c0;
+  margin-bottom: 32px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #8da0c0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: 1px solid #1e3a5f;
+  border-radius: 8px;
+  transition: all 0.25s;
+}
+.footer-link:hover {
+  color: var(--white);
+  border-color: var(--blue);
+  background: rgba(29,106,229,0.12);
+}
+.footer-copy {
+  font-size: 13px;
+  color: #4a6080;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #1e3a5f;
+}
+
+/* ── ABOUT STRIP ── */
+.about-strip {
+  background: var(--navy);
+  color: var(--white);
+  padding: 80px 24px;
+}
+.about-inner {
+  max-width: 1160px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-text .section-label { color: #60a5fa; }
+.about-text .section-title { color: var(--white); margin-bottom: 20px; }
+.about-text p {
+  color: #8da0c0;
+  line-height: 1.8;
+  font-size: 15px;
+}
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.about-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #60a5fa;
+  background: rgba(96,165,250,0.1);
+  border: 1px solid rgba(96,165,250,0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.highlight-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 24px;
+}
+.highlight-num {
+  font-family: var(--serif);
+  font-size: 40px;
+  color: #60a5fa;
+  line-height: 1;
+}
+.highlight-label {
+  font-size: 13px;
+  color: #8da0c0;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ── LIGHTBOX ── */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  cursor: zoom-out;
+  animation: lbFade 0.2s ease;
+}
+.lightbox-overlay.open { display: flex; }
+@keyframes lbFade {
+  from { opacity: 0; } to { opacity: 1; }
+}
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 88vh;
+  border-radius: 12px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  animation: lbZoom 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  cursor: default;
+}
+@keyframes lbZoom {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  transition: background 0.2s;
+  border: none;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.22); }
+/* Make all zoomable images show pointer */
+img[data-zoom] { cursor: zoom-in; }
+
+/* ── INTERNSHIP SECTION ── */
+.internship-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  box-shadow: 0 12px 40px rgba(29,106,229,0.08);
+  transition: box-shadow 0.3s;
+}
+.internship-card:hover {
+  box-shadow: 0 20px 60px rgba(29,106,229,0.15);
+}
+.internship-img-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 340px;
+  background: var(--sky);
+}
+.internship-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+  cursor: zoom-in;
+}
+.internship-img-wrap:hover img { transform: scale(1.04); }
+.internship-zoom-hint {
+  position: absolute;
+  bottom: 14px; right: 14px;
+  background: rgba(29,106,229,0.85);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+.internship-details {
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.internship-details .section-label { margin-bottom: 10px; }
+.internship-details h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.internship-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.internship-meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.internship-meta-item i {
+  color: var(--blue);
+  width: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.internship-meta-item strong { color: var(--ink); }
+.internship-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  color: #2e7d32;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 20px;
+  width: fit-content;
+}
+@media (max-width: 768px) {
+  .internship-card { grid-template-columns: 1fr; }
+  .internship-img-wrap { min-height: 220px; }
+  .internship-details { padding: 28px 22px; }
+}
+
+@media (max-width: 768px) {
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-stats { gap: 24px; }
+  .edu-item { grid-template-columns: 1fr; }
+  .edu-item::before { display: none; }
+  .nav-links a { padding: 6px 10px; font-size: 13px; }
+}
 </style>
 </head>
-
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-wrap">
-    <strong>HARINI MOORTHY</strong>
-    <div>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Harini Moorthy</a>
+    <div class="nav-links">
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
       <a href="#cert">Certifications</a>
+      <a href="#internship">Internship</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="container hero">
-  <h1>Hi, I’m <span>Harini Moorthy</span></h1>
-  <p>Frontend-focused ECE graduate building clean, functional web & IoT systems.</p>
-  <br>
-  <a class="btn" href="#projects">View Projects</a>
-  <a class="btn outline" href="Harini_Moorthy_Resume.pdf" target="_blank">Download Resume</a>
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Available for opportunities</div>
+    <h1>Hi, I'm<br><em>Harini Moorthy</em></h1>
+    <p class="hero-sub">Frontend-focused ECE graduate building clean, functional web & IoT systems. I design intuitive experiences and engineer reliable solutions.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary"><i class="fa-solid fa-eye"></i> View Projects</a>
+      <a href="Harini_Moorthy_Resume.pdf" target="_blank" class="btn-outline"><i class="fa-solid fa-download"></i> Download Resume</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div>
+        <div class="stat-num">7.75</div>
+        <div class="stat-label">CGPA (B.E. ECE)</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ABOUT -->
+<div class="about-strip" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <span class="section-label">About Me</span>
+      <h2 class="section-title">Engineer. Designer.<br>Problem Solver.</h2>
+      <p>I'm a motivated Electronics and Communication Engineering student with a strong foundation in Java and web development. I enjoy UI/UX design and am passionate about creating thoughtful, user-centered products. I thrive both independently and in collaborative team environments.</p>
+      <div class="about-pills">
+        <span class="about-pill"><i class="fa-solid fa-map-marker-alt"></i> Salem, Tamil Nadu</span>
+        <span class="about-pill"><i class="fa-solid fa-graduation-cap"></i> B.E. ECE · 2026</span>
+        <span class="about-pill"><i class="fa-solid fa-code"></i> Frontend Dev</span>
+        <span class="about-pill"><i class="fa-solid fa-microchip"></i> IoT Systems</span>
+      </div>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <div class="highlight-num">6+</div>
+        <div class="highlight-label">UI/UX Designs</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-num">2</div>
+        <div class="highlight-label">IoT/BE Projects</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-num">4+</div>
+        <div class="highlight-label">Events Organized</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-num">94%</div>
+        <div class="highlight-label">SSLC Score</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PROJECTS -->
-<section class="container" id="projects">
-  <h2>Projects</h2>
+<section class="section" id="projects">
+  <span class="section-label">Work</span>
+  <h2 class="section-title">Featured Projects</h2>
 
   <div class="tabs">
     <div class="tab active" onclick="openTab(0)">B.E. Projects</div>
-    <div class="tab" onclick="openTab(1)">UI-UX Projects</div>
+    <div class="tab" onclick="openTab(1)">UI/UX Projects</div>
   </div>
 
   <!-- B.E. Projects -->
   <div class="tab-content active">
-    <div class="grid">
+    <div class="project-grid">
       <div class="card">
-        <img src="toxiscan.jpeg" alt="ToxiScan project image">
-        <div class="card-content">
-          <h3>TOXISCAN<span style="color:red;font-size:small;"></span></h3>
-          <p>The invention relates to ToxiScan, a real-time chemical detection system for wastewater from textile industries. It integrates sensors to measure pH, TDS, turbidity, conductivity, ammonia, and dye levels. A microcontroller processes the sensor data to determine pollutant concentrations. The system uses an IoT module to enable remote monitoring and data logging. Alerts are generated when chemical levels exceed safe thresholds. The device is portable, low-cost, and easy to deploy. It provides continuous monitoring to ensure environmental compliance. Overall, ToxiScan promotes efficient wastewater management and environmental safety.</p>
+        <img class="card-media" src="toxiscan.jpeg" alt="ToxiScan – Wastewater Detection System">
+        <div class="card-body">
+          <span class="card-tag">IoT · Embedded Systems</span>
+          <h3>ToxiScan</h3>
+          <p>A portable, real-time chemical detection system for textile wastewater. Integrates pH, TDS, turbidity, conductivity, ammonia, and dye sensors processed by a microcontroller, with IoT-enabled remote monitoring, data logging, and threshold-based alerts.</p>
         </div>
       </div>
-   
       <div class="card">
-        <img src="sample.jpg" alt="ToxiScan project image">
-        <div class="card-content">
-          <h3>SMART-AGRO GREENHOUSE<span style="color:red;font-size:small;"> (PRESENT)</span></h3>
-          <p>The objective is to contribute to the digitalization of the agricultural sector by implementing a cloud-based solution for greenhouse crop production. This approach provides services for economical and environmental benefits, improving system
-efficiency through suggestions for water, pesticide, fertigation, and energy use. It enables access to historical and real-time data, supports adding new devices globally, offers 48-hour weather forecasts, and integrates GMaaS for estimating indoor climate, crop production, and irrigation values via REST API.</p>
+        <img class="card-media" src="sample.jpg" alt="Smart-Agro Greenhouse Platform">
+        <div class="card-body">
+          <span class="card-tag">Cloud · IoT · REST API</span>
+          <h3>Smart-Agro Greenhouse <span style="font-size:13px;color:var(--blue);font-family:var(--sans);font-weight:600;">· Ongoing</span></h3>
+          <p>A cloud-based IoT platform for greenhouse crop production. Delivers real-time and historical data, 48-hour weather forecasts, GMaaS integration for climate and irrigation estimates, and global IoT device management via a web application.</p>
         </div>
       </div>
     </div>
   </div>
-  
 
-  <!-- UI-UX Projects -->
+  <!-- UI/UX Projects -->
   <div class="tab-content">
-    <div class="grid">
+    <div class="project-grid">
       <div class="card">
-        <video src="project1.mp4" controls></video>
-        <div class="card-content">
-          <h3>Sign-up page</h3>
-          <p>A sign-up page that enables users to create an account quickly and securely</p>
+        <video class="card-media" src="project1.mp4" controls></video>
+        <div class="card-body">
+          <span class="card-tag">UI/UX · Web</span>
+          <h3>Sign-up Page</h3>
+          <p>A clean, secure account creation flow with intuitive form design and clear feedback states.</p>
         </div>
       </div>
-       <div class="card">
-        <video src="project2.mp4" controls></video>
-        <div class="card-content">
-          <h3>Email Card</h3>
-          <p>An email advertisement card showcasing electronic gadgets to promote offers, features, and new arrivals</p>
+      <div class="card">
+        <video class="card-media" src="project2.mp4" controls></video>
+        <div class="card-body">
+          <span class="card-tag">UI/UX · Marketing</span>
+          <h3>Email Advertisement Card</h3>
+          <p>A visually engaging email card promoting electronic gadgets — balancing offers, features, and new arrivals.</p>
         </div>
       </div>
-       <div class="card">
-        <video src="project3.mp4" controls></video>
-        <div class="card-content">
+      <div class="card">
+        <video class="card-media" src="project3.mp4" controls></video>
+        <div class="card-body">
+          <span class="card-tag">UI/UX · F&B</span>
           <h3>Food Menu Card</h3>
-          <p>A food menu card designed to display dishes clearly and attractively for easy selection.</p>
+          <p>A well-structured menu card designed for clarity and appetite appeal, enabling easy dish selection.</p>
         </div>
       </div>
       <div class="card">
-        <img src="project4.jpeg"></img>
-        <div class="card-content">
-          <h3>Ticket Booking</h3>
-          <p>A Disney movie ticket booking page designed for quick seat selection and a smooth booking experience.</p>
+        <img class="card-media" src="project4.jpeg" alt="Disney Ticket Booking UI">
+        <div class="card-body">
+          <span class="card-tag">UI/UX · Booking</span>
+          <h3>Ticket Booking – Disney</h3>
+          <p>A Disney movie ticket booking page with smooth seat selection, an immersive visual theme, and frictionless checkout.</p>
         </div>
       </div>
       <div class="card">
-        <video src="project5.mp4" controls></video>
-        <div class="card-content">
+        <video class="card-media" src="project5.mp4" controls></video>
+        <div class="card-body">
+          <span class="card-tag">UI/UX · App Design</span>
           <h3>Foodzy App</h3>
-          <p>A food ordering app designed for easy menu browsing, quick ordering, and seamless checkout.</p>
+          <p>A food ordering app designed for effortless menu browsing, quick ordering, and a seamless checkout experience.</p>
         </div>
       </div>
       <div class="card">
-        <img src="project6.jpeg"></img>
-        <div class="card-content">
-          <h3>TickRush Site</h3>
-          <p>Browse our latest collection and choose your perfect timepiece. Order online easily and get it delivered straight to your doorstep..</p>
+        <img class="card-media" src="project6.jpeg" alt="TickRush Watch E-commerce">
+        <div class="card-body">
+          <span class="card-tag">UI/UX · E-commerce</span>
+          <h3>TickRush – Watch Store</h3>
+          <p>A watch e-commerce site with a curated collection layout, streamlined online ordering, and home delivery flow.</p>
         </div>
       </div>
     </div>
   </div>
-
+</section>
 
 <!-- SKILLS -->
-<section class="container" id="skills">
-  <h2>Skill-Based Projects</h2>
-  <div class="skills">
-    <span>UI/UX</span>
-    <span>Java</span>
-    <span>IoT</span>
-    <span>Web Development</span>
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-    <span>Figma</span>
+<section style="background: var(--sky); padding: 80px 0;" id="skills">
+  <div class="section" style="padding-top:0;padding-bottom:0;">
+    <span class="section-label">Expertise</span>
+    <h2 class="section-title">Skills & Technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-icon"><i class="fa-solid fa-code"></i></div>
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+        <div class="skill-group-title">UI/UX Design</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Wireframing</span>
+          <span class="skill-tag">Prototyping</span>
+          <span class="skill-tag">Canva</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><i class="fa-solid fa-globe"></i></div>
+        <div class="skill-group-title">Web Development</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Responsive Design</span>
+          <span class="skill-tag">REST API</span>
+          <span class="skill-tag">Frontend Dev</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><i class="fa-solid fa-microchip"></i></div>
+        <div class="skill-group-title">IoT & Embedded</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Microcontrollers</span>
+          <span class="skill-tag">Sensor Integration</span>
+          <span class="skill-tag">PCB Design</span>
+          <span class="skill-tag">IoT Modules</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><i class="fa-solid fa-toolbox"></i></div>
+        <div class="skill-group-title">Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Cloud Platforms</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon"><i class="fa-solid fa-users"></i></div>
+        <div class="skill-group-title">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Problem Solving</span>
+          <span class="skill-tag">Team Collaboration</span>
+          <span class="skill-tag">Event Management</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
-<section class="container" id="education">
-  <h2>Education</h2>
-  <div class="edu">
-    <div class="edu-item">
-      <h3>B.E – Electronics & Communication Engineering</h3>
-      <span>Sona College of Technology</span>
-      <span>CGPA: 7.57</span>
-    </div>
-    <div class="edu-item">
-      <h3>Higher Secondary Education (HSE)</h3>
-      <span>Royal Park School (State Board)</span>
-      <span>Percentage: 70%</span>
-    </div>
-    <div class="edu-item">
-      <h3>Secondary School Education (SSE)</h3>
-      <span>Royal Park School (State Board)</span>
-      <span>Percentage: 94%</span>
+<section class="section" id="education">
+  <span class="section-label">Academic Background</span>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-wrapper">
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-degree">B.E. – Electronics & Communication Engineering</div>
+          <div class="edu-school">Sona College of Technology, Salem</div>
+          <span class="edu-score"><i class="fa-solid fa-star" style="font-size:11px;"></i> CGPA: 7.75</span>
+        </div>
+        <div class="edu-year">2022 – 2026</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+          <div class="edu-school">Royal Park Matriculation HSC School, Salem · State Board</div>
+          <span class="edu-score"><i class="fa-solid fa-star" style="font-size:11px;"></i> 70%</span>
+        </div>
+        <div class="edu-year">2022</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-degree">Secondary School Certificate (SSLC)</div>
+          <div class="edu-school">Royal Park Matriculation HSC School, Salem · State Board</div>
+          <span class="edu-score"><i class="fa-solid fa-star" style="font-size:11px;"></i> 94%</span>
+        </div>
+        <div class="edu-year">2020</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS-->
-<section class="container" id="cert">
-  <h2>Certifications</h2>
-  <div class="grid">
-    <div class="cert"><img src="APTITHON.jpeg"></div>
-    <div class="cert"><img src="CLOUD COMPUTING.jpeg"></div>
-    <div class="cert"><img src="FULL STACK.jpeg"></div>
-    <div class="cert"><img src="ELECTROBLITZ.jpeg"></div>
-    <div class="cert"><img src="BEST USER.jpeg"></div>
-    <div class="cert"><img src="TECHATHON.jpeg"></div>
-    <div class="cert"><img src="SPEAKERS FORUM.jpeg"></div>
-    <div class="cert"><img src="SPEAKERS FORUM 2.jpeg"></div>
-    <div class="cert"><img src="iot.jpeg"></div>
-    <div class="cert"><img src="pcb.jpeg"></div>
+<!-- CERTIFICATIONS -->
+<section style="background: var(--sky); padding: 80px 0;" id="cert">
+  <div class="section" style="padding-top:0;padding-bottom:0;">
+    <span class="section-label">Achievements</span>
+    <h2 class="section-title">Certifications & Awards</h2>
+    <div class="cert-grid">
+      <div class="cert-card"><img src="APTITHON.jpeg" alt="Aptitude Marathon Certificate" loading="lazy"></div>
+      <div class="cert-card"><img src="CLOUD COMPUTING.jpeg" alt="Cloud Computing – NPTEL" loading="lazy"></div>
+      <div class="cert-card"><img src="FULL STACK.jpeg" alt="Full Stack Web Development" loading="lazy"></div>
+      <div class="cert-card"><img src="ELECTROBLITZ.jpeg" alt="Electroblitz Organizer" loading="lazy"></div>
+      <div class="cert-card"><img src="BEST USER.jpeg" alt="Sona Library Best User Award" loading="lazy"></div>
+      <div class="cert-card"><img src="TECHATHON.jpeg" alt="Sona Techathon" loading="lazy"></div>
+      <div class="cert-card"><img src="SPEAKERS FORUM.jpeg" alt="Speakersforum Participation" loading="lazy"></div>
+      <div class="cert-card"><img src="SPEAKERS FORUM 2.jpeg" alt="Speakersforum 2" loading="lazy"></div>
+      <div class="cert-card"><img src="iot.jpeg" alt="IoT Certification – KRISHTEC" loading="lazy"></div>
+      <div class="cert-card"><img src="pcb.jpeg" alt="PCB Design – Sunshiv Electronic Solution" loading="lazy"></div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- INTERNSHIP -->
+<section class="section" id="internship">
+  <span class="section-label">Experience</span>
+  <h2 class="section-title">Internship</h2>
+  <div class="internship-card">
+    <div class="internship-img-wrap">
+      <img src="internship.jpeg" alt="RedMind Technologies Internship Certificate" data-zoom loading="lazy">
+      <div class="internship-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to zoom</div>
+    </div>
+    <div class="internship-details">
+      <span class="section-label">Certificate of Internship Completion</span>
+      <h3>UI/UX Design Intern</h3>
+      <div class="internship-meta">
+        <div class="internship-meta-item">
+          <i class="fa-solid fa-building"></i>
+          <span><strong>RedMind Technologies</strong><br>Vennandur, Namakkal District</span>
+        </div>
+        <div class="internship-meta-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span><strong>Duration:</strong> 20 January 2026 – 27 February 2026</span>
+        </div>
+        <div class="internship-meta-item">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span><strong>Candidate:</strong> Harini M · B.E. Electronics & Communication Engineering<br>Sona College of Technology, Salem, Tamil Nadu – 636005</span>
+        </div>
+        <div class="internship-meta-item">
+          <i class="fa-solid fa-layer-group"></i>
+          <span><strong>Domain:</strong> UI/UX Design — Research & Development Division</span>
+        </div>
+      </div>
+      <div class="internship-badge">
+        <i class="fa-solid fa-circle-check"></i> Completed Successfully
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- LIGHTBOX OVERLAY -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
+
+<!-- FOOTER / CONTACT -->
 <footer id="contact">
-  <p>Connect with me</p>
-  <a href="mailto:harinim.22ece@sonatech.ac.in"><i class="fa-solid fa-envelope"></i></a>
-  <a href="https://www.linkedin.com/in/harinimmrthy" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-  <a href="tel:+919489664171"><i class="fa-solid fa-phone"></i></a>
-  <p>© 2026 Harini M</p>
+  <div class="footer-inner">
+    <div class="footer-name">Harini Moorthy</div>
+    <div class="footer-tagline">Open to frontend, IoT & design roles · Salem, Tamil Nadu</div>
+    <div class="footer-links">
+      <a href="mailto:harinimoorthyj@gmail.com" class="footer-link">
+        <i class="fa-solid fa-envelope"></i> harinimoorthyj@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/harinimmrthy" target="_blank" class="footer-link">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="tel:+919489664171" class="footer-link">
+        <i class="fa-solid fa-phone"></i> +91-94896-64171
+      </a>
+      <a href="https://harinim-004.github.io/Harini-M" target="_blank" class="footer-link">
+        <i class="fa-brands fa-github"></i> Portfolio
+      </a>
+    </div>
+    <div class="footer-copy">© 2026 Harini Moorthy · Built with care</div>
+  </div>
 </footer>
 
-
 <script>
-function openTab(i){
-  document.querySelectorAll('.tab').forEach((t,idx)=>{
-    t.classList.toggle('active',idx===i);
-    document.querySelectorAll('.tab-content')[idx].classList.toggle('active',idx===i);
+function openTab(i) {
+  document.querySelectorAll('.tab').forEach((t, idx) => {
+    t.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.tab-content').forEach((c, idx) => {
+    c.classList.toggle('active', idx === i);
   });
 }
+
+// Scroll-triggered fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card, .skill-group, .edu-item, .cert-card, .highlight-card, .internship-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+// ── LIGHTBOX ──
+// Apply zoom to all relevant images
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.cert-card img, .card img, .internship-img-wrap img').forEach(img => {
+    img.setAttribute('data-zoom', '');
+    img.style.cursor = 'zoom-in';
+  });
+  // Attach click listeners
+  document.querySelectorAll('img[data-zoom]').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+});
+
+function openLightbox(src, alt) {
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  lbImg.src = src;
+  lbImg.alt = alt || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (e && e.target === document.getElementById('lightbox-img')) return; // don't close on img click
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 
 </body>
